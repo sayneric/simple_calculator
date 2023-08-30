@@ -76,24 +76,8 @@ void operations(void)
 		case 2:
 			{
 				printf("\n\x1b[4mSUBTRACTION\x1b[0m\n");
-				                                printf("Enter numbers to subtract (add 0 when done):\n");
-                                do {
-                                        scanf("%d", &input);
-
-                                        numbers = realloc(numbers, (count + 1) * sizeof(int));
-                                        numbers[count++] = input;
-                                } while (input != 0);
-
-                                if(count > 11)
-                                {
-                                        printf("Sorry, you can only subtract  ten numbers at a go.\n");
-                                }
-                                else
-                                {
-                                        result = sub(count, numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], numbers[8], numbers[9], numbers[10], 0);
-                                        printf("Difference is: %d\n", result);
-                                }
-                                free(numbers);
+				result = sub(count, 20, 50);
+				printf("Difference is: %d\n", result);	
 				break;
 			}
 		case 3:
