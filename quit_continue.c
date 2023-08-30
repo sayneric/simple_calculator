@@ -6,5 +6,5 @@ int askContinue()
 
 	printf("Do you want to perform another calculation? (y/n): ");
 	scanf(" %c", &choice);
-	return (choice == 'y' || choice 'Y');
+	return (choice == 'y' || choice == 'Y');
 }

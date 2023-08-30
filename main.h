@@ -8,7 +8,7 @@
 
 void display_menu(void);
 void operations(void);
-void buildEquation(char operation, int num_values, double result);
+void buildEquation(char operation, int num_values, double values[], double result);
 /* for operation */
 double add(int num_values, ...);
 double subtract(int num_values, ...);
