@@ -34,7 +34,9 @@ void display_menu(void)
 void operations(void)
 {
 	int result;
+	double quotient;
 	int *numbers = NULL;
+	double *num = NULL;
 	int count = 0;
 	int input;
 
@@ -68,7 +70,7 @@ void operations(void)
 				else
 				{
 					result = add(count, numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], numbers[8], numbers[9], numbers[10], 0);
-					printf("Total is: %d\n", result);
+					printf("Sum is: %d\n", result);
 				}
 				free(numbers);
 				break;
@@ -76,34 +78,92 @@ void operations(void)
 		case 2:
 			{
 				printf("\n\x1b[4mSUBTRACTION\x1b[0m\n");
-				                                printf("Enter numbers to subtract (add 0 when done):\n");
-                                do {
-                                        scanf("%d", &input);
+				printf("Enter numbers to subtract (add 0 when done):\n");
+				do {
+					scanf("%d", &input);
 
-                                        numbers = realloc(numbers, (count + 1) * sizeof(int));
-                                        numbers[count++] = input;
-                                } while (input != 0);
+					numbers = realloc(numbers, (count + 1) * sizeof(int));
+					numbers[count++] = input;
+				} while (input != 0);
 
-                                if(count > 11)
-                                {
-                                        printf("Sorry, you can only subtract  ten numbers at a go.\n");
-                                }
-                                else
-                                {
-                                        result = sub(count, numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], numbers[8], numbers[9], numbers[10], 0);
-                                        printf("Difference is: %d\n", result);
-                                }
-                                free(numbers);
+				if(count > 11)
+				{
+					printf("Sorry, you can only subtract  ten numbers at a go.\n");
+				}
+				else
+				{
+					result = sub(count, numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], numbers[8], numbers[9], numbers[10], 0);
+					printf("Difference is: %d\n", result);
+				}
+				free(numbers);
 				break;
 			}
 		case 3:
 			{
 				printf("\n\x1b[4mMULTIPLICATION\x1b[0m\n");
-				break;
+				printf("Enter numbers to multiply (add 1 when done):\n");
+                                do {
+                                        scanf("%d", &input);
+
+                                        numbers = realloc(numbers, (count + 1) * sizeof(int));
+                                        numbers[count++] = input;
+                                } while (input != 1);
+
+                                if(count > 11)
+                                {
+                                        printf("Sorry, you can only multiply  ten numbers at a go.\n");
+                                }
+                                else
+                                {
+                                        result = multiply(count, numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], numbers[8], numbers[9], numbers[10], 1);
+                                        printf("Product is: %d\n", result);
+                                }
+                                free(numbers);
+                                break;
 			}
 		case 4:
 			{
 				printf("\n\x1b[4mDIVISION\x1b[0m\n");
+				
+				           printf("Enter numbers to divide (add 0 when done):\n");
+                                do {
+                                        scanf("%d", &input);
+
+					if(input != 0)
+					{
+					
+                                        	num = realloc(num, (count + 1) * sizeof(int));
+						if (num == NULL)
+						{
+							printf("Memory allocation failed!\n");
+							break;
+						}
+
+						num[count++] = input;
+					}
+                                } while (input != 0);
+
+                                if(count <= 1)
+                                {
+                                        printf("At least two numbers are need for division.\n");
+                                }
+				else if (count > 11)
+				{
+					printf("Sorry you can only divide ten numbers at a go\n");
+				}
+                                else
+                                {
+                                        quotient = divide(count, num[0], num[1], num[2], num[3], num[4], num[5], num[6], num[7], num[8], num[9], num[10], 0);
+					if (quotient == 0.0)
+					{
+						printf("Cannot divide by zero.\n");
+					}
+					else
+					{
+						printf("Quotient is: %f\n", quotient);
+					}
+                                }
+                                free(num);
 				break;
 			}
 		default:
