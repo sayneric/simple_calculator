@@ -20,7 +20,8 @@ void display_menu(void)
 	printf("1: for ADDITION\n");
 	printf("2: for SUBTRACTION\n");
 	printf("3: for MULTIPLICATION\n");
-	printf("4: for DIVISION\n");	
+	printf("4: for DIVISION\n");
+	printf("5: for MIXED OPERATIONS\n");	
 
 }
 
@@ -165,6 +166,13 @@ void operations(void)
                                 }
                                 free(num);
 				break;
+			}
+		case 5:
+			{
+				printf("\n\x1b[4mMIXED OPERATIONS\x1b[0m\n");
+				mixed_operations();
+				break;
+
 			}
 		default:
 			{

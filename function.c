@@ -92,3 +92,51 @@ double divide(int count, ...)
     va_end(numbers);
     return result;
 }
+
+/* MIXED OPERATIONS */
+
+double mixed(int count, ...) 
+{
+	va_list args;
+	double result;
+	double value;
+	char operation;
+	int i;
+	va_start(args, count);
+
+	result = va_arg(args, double); 
+
+
+	for (i = 1; i < count; i += 2) {
+		operation = va_arg(args, int);
+		value = va_arg(args, double);
+
+		switch (operation) {
+			case '+':
+				result += value;
+				break;
+			case '-':
+				result -= value;
+				break;
+			case '*':
+				result *= value;
+				break;
+			case '/':
+				if (value != 0) {
+					result /= value;
+				} else {
+					printf("Error: Division by zero\n");
+					va_end(args);
+					return 0;
+				}
+				break;
+			default:
+				printf("Invalid operation\n");
+				va_end(args);
+				return 0;
+		}
+	}
+
+	va_end(args);
+	return result;
+}

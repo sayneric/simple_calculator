@@ -15,6 +15,9 @@ int main(void)
                 /* OPERATIONS*/
                 operations();
 
+		/* MIXED OPRATIONS*/
+		/*mixed_operations();*/
+
                 /* QUIT OR CONTINUE*/
                 choice = askContinue();
                 if (choice == 'y' || choice == 'Y')

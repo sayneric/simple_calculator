@@ -14,5 +14,7 @@ int sub(int count, ...);
 int multiply(int count, ...);
 double divide(int count, ...);
 int askContinue(void);
+double mixed(int count, ...);
+void mixed_operations(void);
 
 #endif
