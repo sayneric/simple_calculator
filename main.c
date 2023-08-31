@@ -2,13 +2,33 @@
 
 /* GLOBAL VARIABLES*/
 
+
 int main(void)
 {
-	/*DISPLAY MENU TO THE USER*/
-	display_menu();
+        char choice;
 
-	/* OPERATIONS*/
-	operations();
+        while(1)
+        {
+                /*DISPLAY MENU TO THE USER*/
+                display_menu();
 
-	return(0);
+                /* OPERATIONS*/
+                operations();
+
+                /* QUIT OR CONTINUE*/
+                choice = askContinue();
+                if (choice == 'y' || choice == 'Y')
+                {
+                        continue;
+                }
+                else
+                {
+                        printf("BYE !\n");
+                        exit(0);
+                }
+
+
+        }
+
+        return(0);
 }

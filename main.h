@@ -13,5 +13,6 @@ int add(int count, ...);
 int sub(int count, ...);
 int multiply(int count, ...);
 double divide(int count, ...);
+int askContinue(void);
 
 #endif

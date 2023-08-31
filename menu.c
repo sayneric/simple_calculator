@@ -160,7 +160,7 @@ void operations(void)
 					}
 					else
 					{
-						printf("Quotient is: %f\n", quotient);
+						printf("Quotient is: %.2f\n", quotient);
 					}
                                 }
                                 free(num);

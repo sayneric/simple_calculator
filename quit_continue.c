@@ -1,10 +1,17 @@
-#include <stdio.h>
+#include "main.h"
+
 /* file responsible for the end of operations */
-int askContinue()
+
+int askContinue(void)
 {
 	char choice;
 
-	printf("Do you want to perform another calculation? (y/n): ");
+	printf("\nDo you want to perform another calculation? (y/n): \n");
 	scanf(" %c", &choice);
-	return (choice == 'y' || choice == 'Y');
+	return (choice);
+
+	while(getchar() != '\n')
+		continue;
+
+	return (choice);
 }
